@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <h:link outcome="clients.xhtml" value="Clients" />
+        <br/>
+        <h:form>
+            <h:commandButton id="one" value="Add 1 client" disabled="true" actionListener="#{populateMB.addOneClient()}"/>
+            <h:commandButton id="thousand" value="Add 1.000 client" actionListener="#{populateMB.addThousandClients()}"/>
+            <h:commandButton id="million" value="Add 1.000.000 client" actionListener="#{populateMB.addMillionClients()}"/>
+            <h:commandButton id="tenmillion" disabled="true" value="Add 10.000.000 client" actionListener="#{populateMB.addTenMillionClients()}"/>
+        </h:form>
+        <hr/>
+        <h:form rendered="#{listClientsMB.clients.size() > 0}">
+            <p:messages id="message" />
+            <h:commandButton id="relationships" value="Add relationships" actionListener="#{populateMB.addRelationships()}"/>
+            <h:commandButton id="transactions" value="Add transactions" actionListener="#{populateMB.addTransactions()}"/>
+            <hr/>
+        </h:form>
+        <form action="GetClient" method="get">
+            <button class="button" id="getclient" type="submit">Get client</button>
+        </form>
+    </body>
+</html>
